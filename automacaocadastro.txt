@@ -1,0 +1,221 @@
+import pyautogui
+import pyperclip
+import time
+import csv
+import pandas as pd
+import os
+import tkinter as tk
+from collections import Counter
+
+pyautogui.size()
+pyautogui.FAILSAFE = False
+
+
+#Importar base
+base_geral = '/Users/luson.lyrio/Documents/avista - DEV/sorteio_revista/dados/cadastro.csv'
+dados_acesso = pd.read_csv(base_geral, sep=';',dtype = str)
+
+
+## filtered_df = df_base_geral[~df_base_geral['usuario'].isin(['nao@naotem.com', 'naotememail@mail.com', 'NAO TEM', 'NAO POSSUI', 'NAO']) & df_base_geral['usuario'].notnull()]
+
+
+#Checar quantidade de base
+print(dados_acesso)
+
+
+#Selecione os 500 primeiros para trabalhar
+print((dados_acesso["cpf"][0:500]))
+
+
+#Descobrir a posição
+print (pyautogui.position())
+
+
+#Mover para posição
+pyautogui.moveTo(650,690)
+
+
+#Codigo (Main)
+
+    
+for i in range(len(dados_acesso)):
+
+        ##INFORMAR O CPF
+    pyautogui.moveTo(650,690)
+    ## DOIS CLIQUES, UM CLICK PARA ACESSAR E OUTRO PARA ENTRAR NO CAMPO
+    pyautogui.click()
+    ##time.sleep(2)
+
+    pyautogui.typewrite(dados_acesso.iloc[i,0])
+    pyautogui.hotkey("enter")
+    time.sleep(2)
+    ##print (Class)
+    print(dados_acesso.iloc[i,0])
+
+    ##INFORMAR NOME
+    #pyautogui.moveTo(460,485)
+    #pyautogui.click()
+    time.sleep(2)
+    pyautogui.typewrite(dados_acesso.iloc[i,1])
+    ##pyautogui.typewrite("Avistar23!")
+    ##pyautogui.hotkey("enter")
+    time.sleep(2)
+    ##print (Class)13828415741
+    print(dados_acesso.iloc[i,1])
+
+    
+    ##INFORMAR E-MAIL
+    pyautogui.hotkey('tab')
+    #pyautogui.moveTo(460,550)
+    #pyautogui.click()
+    time.sleep(2)
+    pyautogui.typewrite(dados_acesso.iloc[i,2])
+    time.sleep(2)
+    print(dados_acesso.iloc[i,2])
+
+    
+    ##INFORMAR TELEFONE
+    pyautogui.hotkey('tab')
+    #pyautogui.moveTo(460,600)
+    #pyautogui.click()
+    time.sleep(2)
+    pyautogui.typewrite(dados_acesso.iloc[i,3])
+    time.sleep(2)
+    print(dados_acesso.iloc[i,3])
+
+    
+    ##INFORMAR SENHA
+    pyautogui.hotkey('tab')
+    #pyautogui.moveTo(460,660)
+    #pyautogui.click()
+    time.sleep(2)
+    pyautogui.typewrite(dados_acesso.iloc[i,4])
+    time.sleep(2)
+    print(dados_acesso.iloc[i,4])
+    
+
+    ##DESCER TELA
+    #pyautogui.moveTo(1080,530)
+    #pyautogui.click()
+    #time.sleep(2)
+
+
+    ##CONFIRMAR SENHA
+    pyautogui.hotkey('tab')
+    #pyautogui.moveTo(460,320)
+    #pyautogui.click()
+    time.sleep(2)
+    pyautogui.typewrite(dados_acesso.iloc[i,5])
+    time.sleep(2)
+    print(dados_acesso.iloc[i,5])
+
+
+    ##COMO CONHECEU
+    pyautogui.hotkey('tab')
+    pyautogui.hotkey('enter')
+    pyautogui.press('down')
+    pyautogui.press('down')
+    pyautogui.press('down')
+    pyautogui.press('down')
+    pyautogui.press('down')
+    pyautogui.press('down')
+    pyautogui.press('down')
+    pyautogui.hotkey('enter')
+    #pyautogui.moveTo(460,360)
+    #pyautogui.click()
+    time.sleep(3)
+    #pyautogui.moveTo(430,530)
+    #time.sleep(10)
+    #pyautogui.click()
+
+    ##INFORMAR CEP
+    pyautogui.hotkey('tab')
+    #pyautogui.moveTo(460,470)
+    #pyautogui.click()
+    #time.sleep(2)
+    pyautogui.typewrite(dados_acesso.iloc[i,6])
+    time.sleep(2)
+    print(dados_acesso.iloc[i,6])
+
+     
+    ##INFORMAR ESTADO
+    pyautogui.hotkey('tab')
+    pyautogui.hotkey('enter')
+    #pyautogui.moveTo(430,530)
+    #pyautogui.click()
+    ##time.sleep(2)
+    pyautogui.typewrite(dados_acesso.iloc[i,7])
+    time.sleep(2)
+    pyautogui.hotkey("enter")
+    print(dados_acesso.iloc[i,7])
+
+
+    ##RUA
+    pyautogui.hotkey('tab')
+    time.sleep(2)
+    pyautogui.typewrite(dados_acesso.iloc[i,8])
+    ##pyautogui.moveTo(200,120)
+    ##time.sleep(3)
+    ##pyautogui.click()
+    ##time.sleep(3)
+
+
+    ##NUMERO CASA 
+    pyautogui.hotkey('tab')
+    time.sleep(2)
+    pyautogui.typewrite(dados_acesso.iloc[i,9])
+    ##pyautogui.moveTo(1330,120)
+    ##time.sleep(3)
+    #pyautogui.click()
+    ##time.sleep(2)
+    #pyautogui.moveTo(1210,230)
+    ##time.sleep(3)
+    #pyautogui.click()
+    ##time.sleep(2)
+    #pyautogui.moveTo(900,530)
+    ##time.sleep()
+    #pyautogui.click()
+
+
+    ##BAIRRO
+    pyautogui.hotkey('tab')
+    time.sleep(2)
+    pyautogui.typewrite(dados_acesso.iloc[i,10])
+
+
+    ##CIDADE
+    pyautogui.hotkey('tab')
+    time.sleep(2)
+    pyautogui.typewrite(dados_acesso.iloc[i,11])
+    pyautogui.hotkey('tab')
+    pyautogui.hotkey('tab')
+
+
+    ##ACEITAR TERMO
+    pyautogui.moveTo(415,650)
+    pyautogui.click()
+    pyautogui.hotkey('tab')
+    pyautogui.hotkey('tab')
+
+
+    ##CADASTRAR
+    pyautogui.moveTo(900,650)
+    pyautogui.click()
+    ##time.sleep(5)
+
+    ##SAIR
+    ##pyautogui.moveTo(300,115)
+    ##time.sleep(3)
+    ##pyautogui.click()
+    time.sleep(6)
+    pyautogui.moveTo(300,350)
+    pyautogui.click()
+    pyautogui.moveTo(800,540)
+    pyautogui.click()
+
+
+    
+    time.sleep(6)
+
+
+
